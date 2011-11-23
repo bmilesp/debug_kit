@@ -476,6 +476,7 @@ class HistoryPanel extends DebugPanel {
 				if (!empty($query)) {
 					$title .= '?';
 					foreach ($query as $key => $value) {
+						$value = (is_array($value))? trim(implode('',$value)) : $value;
 						$query[$key] = $key . '=' . urlencode($value);
 					}
 					$title .= implode('&', $query);
